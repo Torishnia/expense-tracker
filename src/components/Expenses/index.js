@@ -1,10 +1,11 @@
+import Card from '../Card';
 import ExpenseItem from '../ExpenseItem/index';
 
 import styles from './index.module.scss';
 
 function Expenses ({ items }) {
   return (
-    <div className={styles.expenses}>
+    <Card className={styles.expenses}>
       <ExpenseItem 
         title={items[0].title}
         amount={items[0].amount}
@@ -15,7 +16,7 @@ function Expenses ({ items }) {
         amount={items[1].amount}
         date={items[1].date}
       />
-    </div>
+    </Card>
   )
 }
 
