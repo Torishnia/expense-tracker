@@ -8,7 +8,7 @@ import ExpensesChart from '../ExpensesChart';
 
 
 function Expenses ({ items }) {
-  const [filteredYear, setFilteredYear] = useState(2023);
+  const [filteredYear, setFilteredYear] = useState('2023');
   const filterChangeHandler = (selectedYear) => {
     setFilteredYear(selectedYear);
   }
