@@ -4,6 +4,7 @@ import ExpensesFilter from '../ExpensesFilter';
 import ExpensesList from '../ExpensesList';
 
 import styles from './index.module.scss';
+import ExpensesChart from '../ExpensesChart';
 
 
 function Expenses ({ items }) {
@@ -19,7 +20,11 @@ function Expenses ({ items }) {
   return (
     <div>
       <Card className={styles.expenses}>
-        <ExpensesFilter selected={filteredYear} onChangeFilter={filterChangeHandler} />
+        <ExpensesFilter 
+          selected={filteredYear} 
+          onChangeFilter={filterChangeHandler} 
+        />
+        <ExpensesChart expenses={filteredExpenses} />
         <ExpensesList items={filteredExpenses} />
       </Card>
     </div>
