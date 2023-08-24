@@ -6,14 +6,16 @@ const ExpenseForm = ({ onSaveExpenseData, onCancel }) => {
   const [enteredAmount, setEnteredAmount] = useState('');
   const [enteredDate, setEnteredDate] = useState('');
 
-  const inputChangeHandler = (identifier, value) => {
-    if (identifier === 'title') {
-      setEnteredTitle(value);
-    } if (identifier === 'amount') {
-      setEnteredAmount(value);
-    } else {
-      setEnteredDate(value);
-    }
+  const titleChangeHandler = (event) => {
+    setEnteredTitle(event.target.value);
+  }
+
+  const amountChangeHandler = (event) => {
+    setEnteredAmount(event.target.value);
+  }
+
+  const dateChangeHandler = (event) => {
+    setEnteredDate(event.target.value);
   }
 
   const submitHandler = (event) => {
@@ -39,9 +41,7 @@ const ExpenseForm = ({ onSaveExpenseData, onCancel }) => {
           <input
             type='text'
             value={enteredTitle}
-            onChange={(event) =>
-              inputChangeHandler('title', event.target.value)
-            }
+            onChange={titleChangeHandler}
           />
         </div>
         <div className={styles.new_expense__control}>
@@ -51,9 +51,7 @@ const ExpenseForm = ({ onSaveExpenseData, onCancel }) => {
             min='0.01'
             step='0.01'
             value={enteredAmount}
-            onChange={(event) =>
-              inputChangeHandler('amount', event.target.value)
-            }
+            onChange={amountChangeHandler}
           />
         </div>
         <div className={styles.new_expense__control}>
@@ -63,9 +61,7 @@ const ExpenseForm = ({ onSaveExpenseData, onCancel }) => {
             min='2023-01-01'
             max='2026-12-31'
             value={enteredDate}
-            onChange={(event) =>
-              inputChangeHandler('date', event.target.value)
-            }
+            onChange={dateChangeHandler}
           />
         </div>
       </div>
